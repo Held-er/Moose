@@ -1,0 +1,8 @@
+<resources>
+    <string name="language">pt</string>
+    <string name="app_name">Moose</string>
+    <string name="now_playing_button">Filmes em Exibição</string>
+    <string name="upcoming_button">Próximas estreias</string>
+    <string name="series_button">Séries</string>
+    <string name="detail_button">></string>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="language">en</string>
+    <string name="app_name">Moose</string>
+    <string name="now_playing_button">Now Playing Movies</string>
+    <string name="upcoming_button">Upcoming Movies</string>
+    <string name="series_button">Series</string>
+    <string name="detail_button"><![CDATA[>]]></string>
+    <string name="series_activity_label">Most Popular Series</string>
+    <string name="now_playing_activity_label">Now Playing Movies</string>
+    <string name="upcoming_activity_label">Upcoming Movies</string>
+</resources>
