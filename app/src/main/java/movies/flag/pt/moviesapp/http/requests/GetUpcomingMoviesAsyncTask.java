@@ -3,7 +3,6 @@ package movies.flag.pt.moviesapp.http.requests;
 import android.content.Context;
 
 import movies.flag.pt.moviesapp.http.entities.MoviesResponse;
-import movies.flag.pt.moviesapp.http.entities.UpcomingMoviesResponse;
 
 /**
  * Created by Ricardo Neves on 19/10/2016.
@@ -11,7 +10,7 @@ import movies.flag.pt.moviesapp.http.entities.UpcomingMoviesResponse;
  * Get upcoming movies
  */
 
-public abstract class GetUpcomingMoviesAsyncTask extends ExecuteRequestAsyncTask<UpcomingMoviesResponse> {
+public abstract class GetUpcomingMoviesAsyncTask extends ExecuteRequestAsyncTask<MoviesResponse> {
 
     private static final String PATH = "/movie/upcoming";
     private static final String LANGUAGE_KEY = "language";
@@ -32,7 +31,7 @@ public abstract class GetUpcomingMoviesAsyncTask extends ExecuteRequestAsyncTask
     }
 
     @Override
-    protected Class<UpcomingMoviesResponse> getResponseEntityClass() {
-        return UpcomingMoviesResponse.class;
+    protected Class<MoviesResponse> getResponseEntityClass() {
+        return MoviesResponse.class;
     }
 }

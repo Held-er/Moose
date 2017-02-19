@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_movies_series_screen_swiperefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        style="@style/LayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/search_movies_series_screen_search_view"
+        style="@style/LayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            style="@style/ButtonStyle"
+            android:id="@+id/search_movies_series_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="@string/search_button"/>
+
+        <EditText
+            style="@style/LayoutStyle"
+            android:id="@+id/search_movies_series_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/search_movies_series_button"
+            android:layout_centerVertical="true"
+            android:hint="@string/edit_text_search_here"
+            android:padding="10dp"
+        />
+    </RelativeLayout>
+
+        <ListView
+            style="@style/LayoutStyle"
+            android:id="@+id/search_movies_series_screen_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search_movies_series_screen_search_view"/>
+
+        <include
+            android:id="@+id/search_movies_series_screen_loader"
+            layout="@layout/loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
+

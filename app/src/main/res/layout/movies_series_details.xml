@@ -1,55 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/LayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp">
 
     <RelativeLayout
+        style="@style/LayoutStyle"
         android:id="@+id/movies_series_details_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/movies_series_details_image"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="5dp"
-            android:src="@mipmap/ic_launcher"/>
+        android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
+        android:maxWidth="150dp"/>
 
         <TextView
+            style="@style/LayoutStyle"
             android:id="@+id/movies_series_details_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/movies_series_details_image"
-            android:text="Title"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"/>
 
         <TextView
+            style="@style/LayoutStyle"
             android:id="@+id/movies_series_details_subtitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movies_series_details_title"
             android:layout_toRightOf="@+id/movies_series_details_image"
-            android:text="Subtitle1"
             android:textSize="18sp"/>
 
         <TextView
+            style="@style/LayoutStyle"
             android:id="@+id/movies_series_details_subtitle2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movies_series_details_subtitle1"
             android:layout_toRightOf="@+id/movies_series_details_image"
-            android:text="Subtitle2"
             android:textSize="18sp"/>
     </RelativeLayout>
 
     <TextView
+        style="@style/LayoutStyle"
         android:id="@+id/movies_series_details_description"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/movies_series_details_header"
         android:paddingTop="10dp"
-        android:text="Aqui pode encontrar a descrição do filme. Muito giro, vi ontem no cinema. 5 estrelas"
         android:textSize="14sp"/>
+
+    <ImageButton
+        android:id="@+id/movies_series_details_fab"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@layout/rounded_corner"
+        android:src="@drawable/ic_share_white_24dp"/>
 </RelativeLayout>

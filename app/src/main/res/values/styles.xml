@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LayoutStyle">
+        <item name="android:background">@color/gray_light</item>
+        <item name="android:textColor">@color/gray_medium</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
 </resources>

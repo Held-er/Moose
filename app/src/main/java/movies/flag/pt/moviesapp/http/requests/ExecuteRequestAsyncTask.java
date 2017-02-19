@@ -112,9 +112,8 @@ public abstract class ExecuteRequestAsyncTask<ResponseEntity> extends AsyncTask<
         StringBuilder sb = new StringBuilder(context.getString(R.string.server_endpoint));
         sb.append(getPath());
         addQueryParam(sb, API_KEY, apiKey);
-        //String language = context.getString(R.string.language);
-        //sb.append(getPath());
-        //addQueryParam(sb, LANGUAGE, language);
+        String language = context.getString(R.string.language);
+        addQueryParam(sb, LANGUAGE, language);
         addQueryParams(sb);
         return sb.toString();
     }

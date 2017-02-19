@@ -1,25 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:orientation="vertical">
-    <Button
-        android:id="@+id/activity_main_now_playing_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/now_playing_button"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/LayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/activity_main_upcoming_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/upcoming_button"/>
 
-    <Button
-        android:id="@+id/activity_main_series_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/series_button"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="15dp"
+            android:text="@string/movies_label"
+            android:textColor="@color/gray_dark"
+            android:textSize="30sp"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                      android:orientation="horizontal"
+                      android:padding="10dp">
+
+            <Button
+                android:id="@+id/activity_main_now_playing_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_now_playing"
+                android:text="@string/now_playing_button"/>
+
+            <Button
+                android:id="@+id/activity_main_upcoming_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_upcoming"
+                android:text="@string/upcoming_button"/>
+
+            <Button
+                android:id="@+id/activity_main_search_movies_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_search"
+                android:text="@string/search_movies_button"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="15dp"
+            android:text="@string/series_label"
+            android:textColor="@color/gray_dark"
+            android:textSize="30sp"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                      android:orientation="horizontal"
+                      android:padding="10dp">
+
+            <Button
+                android:id="@+id/activity_main_series_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_most_popular"
+                android:text="@string/series_button"/>
+
+            <Button
+                android:id="@+id/activity_main_latest_series_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_latest_series"
+                android:text="@string/latest_series_button"/>
+
+            <Button
+                android:id="@+id/activity_main_search_series_button"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_search"
+                android:text="@string/search_series_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/moose"/>
+
+</RelativeLayout>

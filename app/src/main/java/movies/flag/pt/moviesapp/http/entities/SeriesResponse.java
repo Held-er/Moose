@@ -10,7 +10,7 @@ public class SeriesResponse {
     @SerializedName("page")
     @Expose
     private Integer page;
-    @SerializedName("mSeries")
+    @SerializedName("results")
     @Expose
     private List<Series> mSeries = null;
     @SerializedName("total_results")

@@ -1,8 +1,20 @@
 <resources>
     <string name="language">pt</string>
     <string name="app_name">Moose</string>
-    <string name="now_playing_button">Filmes em Exibição</string>
-    <string name="upcoming_button">Próximas estreias</string>
-    <string name="series_button">Séries</string>
-    <string name="detail_button">></string>
+    <string name="now_playing_button">Now Playing</string>
+    <string name="upcoming_button">Upcoming</string>
+    <string name="series_button">Most Popular</string>
+    <string name="detail_button"><![CDATA[>]]></string>
+    <string name="series_activity_label">Most Popular Series</string>
+    <string name="now_playing_activity_label">Now Playing Movies</string>
+    <string name="upcoming_activity_label">Upcoming Movies</string>
+    <string name="search_movie_hint">search movie</string>
+    <string name="movie_details_label">Movie Details</string>
+    <string name="upcoming_movies_activity_label">Upcoming Movies</string>
+    <string name="edit_text_search_here">What are you looking for?</string>
+    <string name="search_button">Search</string>
+    <string name="search_movies_button">Search Movies</string>
+    <string name="search_series_button">Search Series</string>
+    <string name="movies_label">movies</string>
+    <string name="series_label">series</string>
 </resources>

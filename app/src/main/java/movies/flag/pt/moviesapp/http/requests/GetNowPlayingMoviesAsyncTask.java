@@ -28,7 +28,7 @@ public abstract class GetNowPlayingMoviesAsyncTask extends ExecuteRequestAsyncTa
 
     @Override
     protected void addQueryParams(StringBuilder sb) {
-        addQueryParam(sb, LANGUAGE_KEY, LANGUAGE_VALUE);
+        //addQueryParam(sb, LANGUAGE_KEY, LANGUAGE_VALUE);
     }
 
     @Override

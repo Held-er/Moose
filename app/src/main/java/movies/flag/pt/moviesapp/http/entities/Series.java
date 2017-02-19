@@ -1,11 +1,15 @@
 
 package movies.flag.pt.moviesapp.http.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Series {
+public class Series implements Parcelable {
 
     @SerializedName("poster_path")
     @Expose
@@ -151,4 +155,58 @@ public class Series {
         this.originalName = originalName;
     }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.posterPath);
+        dest.writeValue(this.popularity);
+        dest.writeValue(this.id);
+        dest.writeString(this.backdropPath);
+        dest.writeValue(this.voteAverage);
+        dest.writeString(this.overview);
+        dest.writeString(this.firstAirDate);
+        dest.writeStringList(this.originCountry);
+        dest.writeList(this.genreIds);
+        dest.writeString(this.originalLanguage);
+        dest.writeValue(this.voteCount);
+        dest.writeString(this.name);
+        dest.writeString(this.originalName);
+    }
+
+    public Series() {
+    }
+
+    protected Series(Parcel in) {
+        this.posterPath = in.readString();
+        this.popularity = (Double) in.readValue(Double.class.getClassLoader());
+        this.id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.backdropPath = in.readString();
+        this.voteAverage = (Double) in.readValue(Double.class.getClassLoader());
+        this.overview = in.readString();
+        this.firstAirDate = in.readString();
+        this.originCountry = in.createStringArrayList();
+        this.genreIds = new ArrayList<Integer>();
+        in.readList(this.genreIds, Integer.class.getClassLoader());
+        this.originalLanguage = in.readString();
+        this.voteCount = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.name = in.readString();
+        this.originalName = in.readString();
+    }
+
+    public static final Parcelable.Creator<Series> CREATOR = new Parcelable.Creator<Series>() {
+        @Override
+        public Series createFromParcel(Parcel source) {
+            return new Series(source);
+        }
+
+        @Override
+        public Series[] newArray(int size) {
+            return new Series[size];
+        }
+    };
 }

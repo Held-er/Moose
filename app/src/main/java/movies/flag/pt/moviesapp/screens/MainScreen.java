@@ -15,7 +15,10 @@ public class MainScreen extends Screen {
 
     private Button mNowPlayingButton;
     private Button mUpcomingButton;
+    private Button mSearchMoviesButton;
     private Button mSeriesButton;
+    private Button mLatestSeriesButton;
+    private Button mSearchSeriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,10 @@ public class MainScreen extends Screen {
     private void findViews() {
         mNowPlayingButton = (Button) findViewById(R.id.activity_main_now_playing_button);
         mUpcomingButton = (Button) findViewById(R.id.activity_main_upcoming_button);
+        mSearchMoviesButton = (Button) findViewById(R.id.activity_main_search_movies_button);
         mSeriesButton = (Button) findViewById(R.id.activity_main_series_button);
+        mLatestSeriesButton = (Button) findViewById(R.id.activity_main_latest_series_button);
+        mSearchSeriesButton = (Button) findViewById(R.id.activity_main_search_series_button);
     }
 
     private void setListeners() {
@@ -47,10 +53,31 @@ public class MainScreen extends Screen {
             }
         });
 
+        mSearchMoviesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainScreen.this, SearchMoviesScreen.class));
+            }
+        });
+
         mSeriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainScreen.this, SeriesScreen.class));
+            }
+        });
+
+        mLatestSeriesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainScreen.this, LatestSeriesScreen.class));
+            }
+        });
+
+        mSearchSeriesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainScreen.this, SearchSeriesScreen.class));
             }
         });
     }

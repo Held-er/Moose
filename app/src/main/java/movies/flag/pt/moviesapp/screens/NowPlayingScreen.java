@@ -1,6 +1,7 @@
 package movies.flag.pt.moviesapp.screens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -26,12 +30,13 @@ import movies.flag.pt.moviesapp.utils.DLog;
 
 public class NowPlayingScreen extends Screen {
 
+    //private SearchView mSearchView;
     private ListView mNowPlayingListView;
+    private ProgressBar mLoaderView;
 
     private NowPlayingAdapter mNowPlayingAdapter;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
-
 
 
     @Override
@@ -47,26 +52,29 @@ public class NowPlayingScreen extends Screen {
     }
 
     private void findViews() {
+        //mSearchView = (SearchView) findViewById(R.id.movies_series_screen_search);
         mNowPlayingListView = (ListView) findViewById(R.id.movies_series_screen_list);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        mLoaderView = (ProgressBar) findViewById(R.id.movies_series_screen_loader);
     }
 
 
     private void addListeners() {
+        mLoaderView.setVisibility(View.VISIBLE);
         executeRequestNowPlaying();
 
         mSwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-
-
                         // This method performs the actual data-refresh operation.
                         // The method calls setRefreshing(false) when it's finished.
                         executeRequestNowPlaying();
                     }
                 }
         );
+
+
     }
 
     private void executeRequestNowPlaying() {
@@ -78,6 +86,7 @@ public class NowPlayingScreen extends Screen {
                 mNowPlayingAdapter = new NowPlayingAdapter(NowPlayingScreen.this, moviesResponse.getMovies());
                 mNowPlayingListView.setAdapter(mNowPlayingAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);
+                mLoaderView.setVisibility(View.GONE);
             }
 
             @Override
@@ -119,11 +128,19 @@ public class NowPlayingScreen extends Screen {
                 holder = (NowPlayingHolder) v.getTag();
             }
 
-            Movie movie = getItem(position);
+            final Movie movie = getItem(position);
 
             holder.mMovieImage.setImageResource(R.mipmap.ic_launcher);
             holder.mMovieTitle.setText(movie.getTitle());
             holder.mMovieScore.setText(String.valueOf(movie.getVoteAverage()));
+            holder.mMovieDetailButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(NowPlayingScreen.this, NowPlayingDetailsScreen.class);
+                    intent.putExtra(NowPlayingDetailsScreen.MOVIE_PARCELABLE, movie);
+                    startActivity(intent);
+                }
+            });
 
             //check if image is already downloaded or not?
             return v;

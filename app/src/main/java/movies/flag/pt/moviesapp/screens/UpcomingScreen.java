@@ -1,6 +1,7 @@
 package movies.flag.pt.moviesapp.screens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,8 +20,6 @@ import java.util.List;
 import movies.flag.pt.moviesapp.R;
 import movies.flag.pt.moviesapp.http.entities.Movie;
 import movies.flag.pt.moviesapp.http.entities.MoviesResponse;
-import movies.flag.pt.moviesapp.http.entities.UpcomingMovies;
-import movies.flag.pt.moviesapp.http.entities.UpcomingMoviesResponse;
 import movies.flag.pt.moviesapp.http.requests.GetUpcomingMoviesAsyncTask;
 import movies.flag.pt.moviesapp.utils.DLog;
 
@@ -28,12 +29,14 @@ import movies.flag.pt.moviesapp.utils.DLog;
 
 public class UpcomingScreen extends Screen {
 
-    private ListView mUpcomingListView;
+    //private SearchView mSearchView;
+    private ListView mNowPlayingListView;
+    private ProgressBar mLoaderView;
 
-    private UpcomingAdapter mUpcomingAdapter;
+    private NowPlayingAdapter mNowPlayingAdapter;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,37 +51,41 @@ public class UpcomingScreen extends Screen {
     }
 
     private void findViews() {
-        mUpcomingListView = (ListView) findViewById(R.id.movies_series_screen_list);
+        //mSearchView = (SearchView) findViewById(R.id.movies_series_screen_search);
+        mNowPlayingListView = (ListView) findViewById(R.id.movies_series_screen_list);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        mLoaderView = (ProgressBar) findViewById(R.id.movies_series_screen_loader);
     }
 
 
     private void addListeners() {
+        mLoaderView.setVisibility(View.VISIBLE);
         executeRequestUpcoming();
 
         mSwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-
-
                         // This method performs the actual data-refresh operation.
                         // The method calls setRefreshing(false) when it's finished.
                         executeRequestUpcoming();
                     }
                 }
         );
+
+
     }
 
     private void executeRequestUpcoming() {
         new GetUpcomingMoviesAsyncTask(this) {
 
             @Override
-            protected void onResponseSuccess(UpcomingMoviesResponse upcomingMoviesResponse) {
-                DLog.d(tag, "onResponseSuccess " + upcomingMoviesResponse);
-                mUpcomingAdapter = new UpcomingAdapter(UpcomingScreen.this, upcomingMoviesResponse.getUpcomingMovies());
-                mUpcomingListView.setAdapter(mUpcomingAdapter);
+            protected void onResponseSuccess(MoviesResponse moviesResponse) {
+                DLog.d(tag, "onResponseSuccess " + moviesResponse);
+                mNowPlayingAdapter = new NowPlayingAdapter(UpcomingScreen.this, moviesResponse.getMovies());
+                mNowPlayingListView.setAdapter(mNowPlayingAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);
+                mLoaderView.setVisibility(View.GONE);
             }
 
             @Override
@@ -94,21 +101,21 @@ public class UpcomingScreen extends Screen {
      * Adapter
      **/
     //validate constructor
-    private class UpcomingAdapter extends ArrayAdapter<UpcomingMovies> {
-        public UpcomingAdapter(Context context, List<UpcomingMovies> upcoming) {
-            super(context, 0, upcoming);
+    private class NowPlayingAdapter extends ArrayAdapter<Movie> {
+        public NowPlayingAdapter(Context context, List<Movie> movie) {
+            super(context, 0, movie);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = convertView;
-            UpcomingHolder holder;
+            NowPlayingHolder holder;
             // connection to AdapterItem
 
             if (v == null) {
                 //inflate new views
                 v = LayoutInflater.from(UpcomingScreen.this).inflate(R.layout.movies_series_item, null);
-                holder = new UpcomingHolder();
+                holder = new NowPlayingHolder();
                 //uses holder to put findViewById in the if loop
                 holder.mMovieImage = (ImageView) v.findViewById(R.id.movies_series_item_image);
                 holder.mMovieTitle = (TextView) v.findViewById(R.id.movies_series_item_title);
@@ -117,14 +124,22 @@ public class UpcomingScreen extends Screen {
                 v.setTag(holder);
             } else {
                 //reuse views
-                holder = (UpcomingHolder) v.getTag();
+                holder = (NowPlayingHolder) v.getTag();
             }
 
-            UpcomingMovies upcoming = getItem(position);
+            final Movie movie = getItem(position);
 
             holder.mMovieImage.setImageResource(R.mipmap.ic_launcher);
-            holder.mMovieTitle.setText(upcoming.getTitle());
-            holder.mMovieScore.setText(String.valueOf(upcoming.getVoteAverage()));
+            holder.mMovieTitle.setText(movie.getTitle());
+            holder.mMovieScore.setText(String.valueOf(movie.getVoteAverage()));
+            holder.mMovieDetailButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(UpcomingScreen.this, NowPlayingDetailsScreen.class);
+                    intent.putExtra(NowPlayingDetailsScreen.MOVIE_PARCELABLE, movie);
+                    startActivity(intent);
+                }
+            });
 
             //check if image is already downloaded or not?
             return v;
@@ -132,7 +147,7 @@ public class UpcomingScreen extends Screen {
     }
 
     //class created to to put findViewById in the if loop
-    private class UpcomingHolder {
+    private class NowPlayingHolder {
         ImageView mMovieImage;
         TextView mMovieTitle;
         TextView mMovieScore;

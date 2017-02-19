@@ -13,7 +13,8 @@
         <!-- Activities Declaration -->
 
         <activity
-            android:name=".screens.MainScreen">
+            android:name=".screens.MainScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -23,19 +24,57 @@
         <activity
             android:name=".screens.NowPlayingScreen"
             android:label="@string/now_playing_activity_label"
-            android:parentActivityName=".screens.MainScreen">
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".screens.UpcomingScreen"
+            android:label="@string/upcoming_movies_activity_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".screens.SeriesScreen"
             android:label="@string/series_activity_label"
-            android:parentActivityName=".screens.MainScreen">
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".screens.UpcomingScreen"
-            android:label="@string/upcoming_activity_label"
-            android:parentActivityName=".screens.MainScreen">
+            android:name=".screens.NowPlayingDetailsScreen"
+            android:label="@string/movie_details_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".screens.SearchMoviesScreen"
+            android:label="@string/search_movie_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".screens.SearchSeriesScreen"
+            android:label="@string/search_series_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".screens.SeriesDetailsScreen"
+            android:label="@string/details_screen_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".screens.LatestSeriesScreen"
+            android:label="@string/latest_series_label"
+            android:parentActivityName=".screens.MainScreen"
+            android:screenOrientation="portrait">
         </activity>
 
 

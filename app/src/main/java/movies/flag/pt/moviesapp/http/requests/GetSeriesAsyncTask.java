@@ -28,7 +28,7 @@ public abstract class GetSeriesAsyncTask extends ExecuteRequestAsyncTask<SeriesR
 
     @Override
     protected void addQueryParams(StringBuilder sb) {
-        addQueryParam(sb, LANGUAGE_KEY, LANGUAGE_VALUE);
+        //addQueryParam(sb, LANGUAGE_KEY, LANGUAGE_VALUE);
     }
 
     @Override
