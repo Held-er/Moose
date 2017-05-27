@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pick_place">Pick a place</string>
+    <string name="default_info_title">Title</string>
+    <string name="default_info_snippet">Details</string>
+</resources>

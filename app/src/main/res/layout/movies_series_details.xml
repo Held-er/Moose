@@ -1,67 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                style="@style/LayoutStyle"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp">
+                android:layout_height="match_parent">
 
-    <RelativeLayout
-        style="@style/LayoutStyle"
-        android:id="@+id/movies_series_details_header"
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/movies_series_details_coordinator_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/movies_series_details_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
             android:adjustViewBounds="true"
-        android:maxWidth="150dp"/>
+            android:maxWidth="150dp"
+            android:scaleType="fitXY"/>
 
-        <TextView
-            style="@style/LayoutStyle"
-            android:id="@+id/movies_series_details_title"
+        <com.github.mmin18.widget.RealtimeBlurView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/movies_series_details_image"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="40dp"
+            app:realtimeOverlayColor="#32000000"/>
 
-        <TextView
-            style="@style/LayoutStyle"
-            android:id="@+id/movies_series_details_subtitle1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/movies_series_details_title"
-            android:layout_toRightOf="@+id/movies_series_details_image"
-            android:textSize="18sp"/>
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/movies_series_details_scroll_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+        android:background="#80000000">
 
-        <TextView
-            style="@style/LayoutStyle"
-            android:id="@+id/movies_series_details_subtitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/movies_series_details_subtitle1"
-            android:layout_toRightOf="@+id/movies_series_details_image"
-            android:textSize="18sp"/>
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/movies_series_details_header"
+                style="@style/LayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
 
-    <TextView
-        style="@style/LayoutStyle"
-        android:id="@+id/movies_series_details_description"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/movies_series_details_header"
-        android:paddingTop="10dp"
-        android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/movies_series_details_title"
+                    style="@style/LayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
-    <ImageButton
-        android:id="@+id/movies_series_details_fab"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@layout/rounded_corner"
-        android:src="@drawable/ic_share_white_24dp"/>
+                <TextView
+                    android:id="@+id/movies_series_details_subtitle1"
+                    style="@style/LayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movies_series_details_title"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="10dp"
+                    android:textSize="64sp"/>
+
+                <TextView
+                    android:id="@+id/movies_series_details_subtitle2"
+                    style="@style/LayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movies_series_details_subtitle1"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="10dp"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/movies_series_details_description"
+                    style="@style/LayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movies_series_details_subtitle2"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:textSize="16sp"/>
+
+                <ImageButton
+                    android:id="@+id/movies_series_details_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/movies_series_details_description"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_action_favorite_button"/>
+
+                <ImageButton
+                    android:id="@+id/movies_series_details_favorites_disabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/movies_series_details_description"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_favorite_button_disabled"
+                    android:visibility="invisible"/>
+
+                <ImageButton
+                    android:id="@+id/movies_series_details_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movies_series_details_description"
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@+id/movies_series_details_favorites"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_action_share_button"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movies_series_details_favorites">
+
+                    <TextView
+                        android:id="@+id/movies_series_details_label_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/movies_series_details_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/movies_series_details_label_list"
+                        android:background="@android:color/transparent"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
 </RelativeLayout>

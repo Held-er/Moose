@@ -1,0 +1,40 @@
+<resources>
+    <string name="language">es</string>
+    <string name="app_name">Moose</string>
+    <string name="movie_details_label">Detalles de la película</string>
+    <string name="edit_text_search_here">Qué buscas?</string>
+    <string name="search_button">Buscar</string>
+    <string name="search_movie_label">Buscar Películas</string>
+    <string name="search_series_label">Buscar Series</string>
+    <string name="title_label">Título: </string>
+    <string name="vote_average_label">Puntuación Media: </string>
+    <string name="release_date_label">Fecha de Lanzamiento: </string>
+    <string name="description_label">Sinopsis: </string>
+    <string name="series_name_label">Nombre: </string>
+    <string name="first_air_date">Fecha de Lanzamiento: </string>
+    <string name="add_to_favorites">Añadido a los Favoritos</string>
+    <string name="share">Compartir</string>
+    <string name="no_favorite_message">El Moose dice que todavía no tienes Favoritos</string>
+    <string name="no_search_request_message">El Moose no consiguió buscar tu pedido</string>
+    <string name="favorite_screen_title">Tus películas favoritas</string>
+    <string name="location_request_message">El Moose necesita de tu ubicación para enseñarte cines cerca de ti</string>
+    <string name="give_location_button">Dar permisión de ubicación</string>
+    <string name="series_fragment_most_popular">Series Más Populares</string>
+    <string name="series_fragment_on_air">"Series En El Aire "</string>
+    <string name="movies_fragment_search_movies">buscar películas</string>
+    <string name="movies_fragment_now_playing">Películas en Exhibición</string>
+    <string name="movies_fragment_upcoming">Los Próximos Estrenos</string>
+    <string name="movie_details_reccommended">Películas Recomendadas</string>
+    <string name="movies_details_added_to_favorites">Añadido a tus Favoritos</string>
+    <string name="movie_details_removed_from_favorites">Eliminado de tus Favoritos</string>
+    <string name="series_detials_reccommended">Series Recomendadas</string>
+    <string name="movies_details_returned_to_favorites">Devuelto a tus Favoritos</string>
+    <string name="snackbar_undo">DESHACER</string>
+    <string name="on_network_error_movies">El Moose no consiguió buscarte ninguna película. Estás conectado a la internet?</string>
+    <string name="snackbar_retry">VOLVER A PROCESAR</string>
+    <string name="on_network_error_fetching">Buscando...</string>
+    <string name="maps_fragment_cinemas_not_found">El Moose no consiguió encontrar cines cerca de ti</string>
+    <string name="snackba_permission_button">PERMITIR</string>
+    <string name="details_share_message">Hola! Mira esta película que me encanta!</string>
+
+</resources>

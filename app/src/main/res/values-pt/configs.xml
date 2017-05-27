@@ -1,0 +1,6 @@
+ <resources>
+    <string name="server_api_key">b6948414a6f42be3075eee653436b668</string>
+    <string name="maps_api_key">AIzaSyDMY2zmML-V5D1ufht8kaWLC9XIKEBzWcs</string>
+    <string name="server_endpoint">https://api.themoviedb.org/3</string>
+    <string name="maps_server_endpoint">https://maps.googleapis.com/maps/api/staticmap?</string>
+</resources>

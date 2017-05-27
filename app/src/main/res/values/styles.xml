@@ -4,16 +4,16 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="LayoutStyle">
         <item name="android:background">@color/gray_light</item>
-        <item name="android:textColor">@color/gray_medium</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="ButtonStyle">
+    <style name="ButtonStyle" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:background">@android:color/white</item>
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textStyle">bold</item>
@@ -21,4 +21,27 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
+    <style name="DrawerText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="CustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="tabSelectedTextColor">@color/orange_dark</item>
+    </style>
+
+    <style name="CardView">
+        <item name="android:startColor">@color/orange_light</item>
+        <item name="android:endColor">@color/orange_dark</item>
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>

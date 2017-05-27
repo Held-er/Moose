@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/favorites_recycler_screen_view"
+    style="@style/LayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/favorites_recycler_screen_label_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/favorite_screen_title"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/favorites_recycler_screen_recycler_view"
+        style="@style/LayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/favorites_recycler_screen_label_list"/>
+
+    <ImageView
+        android:id="@+id/fragment_no_screen_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/moose"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/fragment_no_screen_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_no_screen_image"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:text="@string/no_favorite_message"
+        android:textColor="@color/gray_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>
+

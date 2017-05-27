@@ -5,9 +5,7 @@ import android.content.Context;
 import movies.flag.pt.moviesapp.http.entities.MoviesResponse;
 
 /**
- * Created by Ricardo Neves on 19/10/2016.
- *
- * Get upcoming movies
+ * Request for getting upcoming movies
  */
 
 public abstract class GetUpcomingMoviesAsyncTask extends ExecuteRequestAsyncTask<MoviesResponse> {

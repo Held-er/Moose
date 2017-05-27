@@ -2,7 +2,6 @@ package movies.flag.pt.moviesapp.screens;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import movies.flag.pt.moviesapp.utils.DLog;
 
@@ -10,7 +9,7 @@ import movies.flag.pt.moviesapp.utils.DLog;
  * Created by Ricardo Neves on 11/10/2016.
  */
 
-public abstract class Screen extends AppCompatActivity {
+public abstract class Screen extends Activity {
 
     protected final String tag = getClass().getSimpleName();
 

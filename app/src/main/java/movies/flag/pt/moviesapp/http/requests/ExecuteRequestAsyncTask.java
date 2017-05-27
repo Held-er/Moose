@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
 import movies.flag.pt.moviesapp.R;
 import movies.flag.pt.moviesapp.helpers.RequestsHelper;
 import movies.flag.pt.moviesapp.utils.DLog;
@@ -19,6 +20,8 @@ public abstract class ExecuteRequestAsyncTask<ResponseEntity> extends AsyncTask<
     private static final String API_KEY = "api_key";
 
     private static final String LANGUAGE = "language";
+
+    private static final String REGION = "region";
 
 
     private final String tag = getClass().getSimpleName();
@@ -114,6 +117,8 @@ public abstract class ExecuteRequestAsyncTask<ResponseEntity> extends AsyncTask<
         addQueryParam(sb, API_KEY, apiKey);
         String language = context.getString(R.string.language);
         addQueryParam(sb, LANGUAGE, language);
+        String region = Locale.getDefault().getCountry();
+        addQueryParam(sb, REGION, region);
         addQueryParams(sb);
         return sb.toString();
     }
@@ -121,5 +126,4 @@ public abstract class ExecuteRequestAsyncTask<ResponseEntity> extends AsyncTask<
     protected StringBuilder addQueryParam(StringBuilder sb, String key, String value) {
         return RequestsHelper.addQueryParam(sb, key, value);
     }
-
 }

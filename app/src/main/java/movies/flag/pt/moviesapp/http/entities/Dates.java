@@ -4,9 +4,11 @@ package movies.flag.pt.moviesapp.http.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * TMDB server Response
+ */
 
 public class Dates {
-
     @SerializedName("maximum")
     @Expose
     private String maximum;

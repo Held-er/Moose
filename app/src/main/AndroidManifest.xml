@@ -1,83 +1,66 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="movies.flag.pt.moviesapp">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Maps info -->
+    <permission
+        android:name="com.example.mapexdemo.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:name="movies.flag.pt.moviesapp.databases.SugarOrmTestApp">
 
         <!-- Activities Declaration -->
 
         <activity
-            android:name=".screens.MainScreen"
-            android:screenOrientation="portrait">
+            android:name=".screens.FragmentScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".screens.NowPlayingScreen"
-            android:label="@string/now_playing_activity_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
-        </activity>
 
         <activity
-            android:name=".screens.UpcomingScreen"
-            android:label="@string/upcoming_movies_activity_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
-            android:name=".screens.SeriesScreen"
-            android:label="@string/series_activity_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
-            android:name=".screens.NowPlayingDetailsScreen"
-            android:label="@string/movie_details_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
+            android:name=".screens.MovieDetailsScreen"
+            android:label="@string/movie_details_label">
         </activity>
 
         <activity
             android:name=".screens.SearchMoviesScreen"
-            android:label="@string/search_movie_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
+            android:label="@string/search_movie_label">
         </activity>
 
         <activity
-            android:name=".screens.SearchSeriesScreen"
-            android:label="@string/search_series_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
+            android:name=".screens.FavoriteDetailsScreen">
         </activity>
 
-        <activity
-            android:name=".screens.SeriesDetailsScreen"
-            android:label="@string/details_screen_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
-        </activity>
+        <!-- Sugar ORM info -->
+        <meta-data android:name="DATABASE" android:value="sugar_example_new.db" />
+        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
 
-        <activity
-            android:name=".screens.LatestSeriesScreen"
-            android:label="@string/latest_series_label"
-            android:parentActivityName=".screens.MainScreen"
-            android:screenOrientation="portrait">
-        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key" />
 
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
+    <!-- Maps OpenGL ES 2 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
 </manifest>

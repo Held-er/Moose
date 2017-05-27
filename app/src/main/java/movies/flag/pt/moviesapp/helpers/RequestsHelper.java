@@ -1,7 +1,6 @@
 package movies.flag.pt.moviesapp.helpers;
 
 import com.google.gson.Gson;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-
 import movies.flag.pt.moviesapp.utils.DLog;
 
 /**
@@ -21,7 +19,6 @@ import movies.flag.pt.moviesapp.utils.DLog;
 public final class RequestsHelper {
 
     private static final String TAG = RequestsHelper.class.getSimpleName();
-
     private static final String UTF_8 = "UTF-8";
     private static final Gson GSON = new Gson();
 
